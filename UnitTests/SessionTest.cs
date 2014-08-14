@@ -132,6 +132,8 @@ namespace UnitTests
         [SetUp]
         public void setup()
         {
+            Common.Logging.LogManager.Adapter = new Common.Logging.Simple.ConsoleOutLoggerFactoryAdapter();
+
             responder = new MockResponder();
             sessionID = new QuickFix.SessionID("FIX.4.2", "SENDER", "TARGET");
             application = new MockApplication();
