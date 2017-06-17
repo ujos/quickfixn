@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("g"));
             }
 
+            public TradingSessionStatusRequest(TradingSessionStatusRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("g"));
+            }
+
+            public new TradingSessionStatusRequest Clone()
+            {
+                return (TradingSessionStatusRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new TradingSessionStatusRequest(this);
+            }
+
             public TradingSessionStatusRequest(
                     QuickFix.Fields.TradSesReqID aTradSesReqID,
                     QuickFix.Fields.SubscriptionRequestType aSubscriptionRequestType

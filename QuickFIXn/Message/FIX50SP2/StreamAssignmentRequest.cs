@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("CC"));
             }
 
+            public StreamAssignmentRequest(StreamAssignmentRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("CC"));
+            }
+
+            public new StreamAssignmentRequest Clone()
+            {
+                return (StreamAssignmentRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new StreamAssignmentRequest(this);
+            }
+
             public StreamAssignmentRequest(
                     QuickFix.Fields.StreamAsgnReqID aStreamAsgnReqID,
                     QuickFix.Fields.StreamAsgnReqType aStreamAsgnReqType

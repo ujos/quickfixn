@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("V"));
             }
 
+            public MarketDataRequest(MarketDataRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("V"));
+            }
+
+            public new MarketDataRequest Clone()
+            {
+                return (MarketDataRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new MarketDataRequest(this);
+            }
+
             public MarketDataRequest(
                     QuickFix.Fields.MDReqID aMDReqID,
                     QuickFix.Fields.SubscriptionRequestType aSubscriptionRequestType,

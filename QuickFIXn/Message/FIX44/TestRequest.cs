@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("1"));
             }
 
+            public TestRequest(TestRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("1"));
+            }
+
+            public new TestRequest Clone()
+            {
+                return (TestRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new TestRequest(this);
+            }
+
             public TestRequest(
                     QuickFix.Fields.TestReqID aTestReqID
                 ) : this()

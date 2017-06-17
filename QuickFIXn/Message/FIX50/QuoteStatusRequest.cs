@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("a"));
             }
 
+            public QuoteStatusRequest(QuoteStatusRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("a"));
+            }
+
+            public new QuoteStatusRequest Clone()
+            {
+                return (QuoteStatusRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new QuoteStatusRequest(this);
+            }
+
 
             public QuickFix.Fields.QuoteStatusReqID QuoteStatusReqID
             { 

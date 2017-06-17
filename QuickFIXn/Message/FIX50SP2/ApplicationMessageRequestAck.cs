@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("BX"));
             }
 
+            public ApplicationMessageRequestAck(ApplicationMessageRequestAck other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("BX"));
+            }
+
+            public new ApplicationMessageRequestAck Clone()
+            {
+                return (ApplicationMessageRequestAck)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new ApplicationMessageRequestAck(this);
+            }
+
             public ApplicationMessageRequestAck(
                     QuickFix.Fields.ApplResponseID aApplResponseID
                 ) : this()

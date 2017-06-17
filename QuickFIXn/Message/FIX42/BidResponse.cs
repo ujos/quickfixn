@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("l"));
             }
 
+            public BidResponse(BidResponse other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("l"));
+            }
+
+            public new BidResponse Clone()
+            {
+                return (BidResponse)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new BidResponse(this);
+            }
+
 
             public QuickFix.Fields.BidID BidID
             { 

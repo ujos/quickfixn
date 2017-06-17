@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("F"));
             }
 
+            public OrderCancelRequest(OrderCancelRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("F"));
+            }
+
+            public new OrderCancelRequest Clone()
+            {
+                return (OrderCancelRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new OrderCancelRequest(this);
+            }
+
             public OrderCancelRequest(
                     QuickFix.Fields.ClOrdID aClOrdID,
                     QuickFix.Fields.Side aSide,

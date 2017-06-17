@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("L"));
             }
 
+            public ListExecute(ListExecute other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("L"));
+            }
+
+            public new ListExecute Clone()
+            {
+                return (ListExecute)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new ListExecute(this);
+            }
+
             public ListExecute(
                     QuickFix.Fields.ListID aListID
                 ) : this()

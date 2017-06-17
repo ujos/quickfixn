@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AH"));
             }
 
+            public RFQRequest(RFQRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AH"));
+            }
+
+            public new RFQRequest Clone()
+            {
+                return (RFQRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new RFQRequest(this);
+            }
+
             public RFQRequest(
                     QuickFix.Fields.RFQReqID aRFQReqID
                 ) : this()

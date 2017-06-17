@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("s"));
             }
 
+            public NewOrderCross(NewOrderCross other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("s"));
+            }
+
+            public new NewOrderCross Clone()
+            {
+                return (NewOrderCross)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new NewOrderCross(this);
+            }
+
             public NewOrderCross(
                     QuickFix.Fields.CrossID aCrossID,
                     QuickFix.Fields.CrossType aCrossType,

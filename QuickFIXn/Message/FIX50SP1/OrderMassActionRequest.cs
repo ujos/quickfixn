@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("CA"));
             }
 
+            public OrderMassActionRequest(OrderMassActionRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("CA"));
+            }
+
+            public new OrderMassActionRequest Clone()
+            {
+                return (OrderMassActionRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new OrderMassActionRequest(this);
+            }
+
             public OrderMassActionRequest(
                     QuickFix.Fields.ClOrdID aClOrdID,
                     QuickFix.Fields.MassActionType aMassActionType,

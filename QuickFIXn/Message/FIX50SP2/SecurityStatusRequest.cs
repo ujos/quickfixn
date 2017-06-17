@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("e"));
             }
 
+            public SecurityStatusRequest(SecurityStatusRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("e"));
+            }
+
+            public new SecurityStatusRequest Clone()
+            {
+                return (SecurityStatusRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new SecurityStatusRequest(this);
+            }
+
             public SecurityStatusRequest(
                     QuickFix.Fields.SecurityStatusReqID aSecurityStatusReqID,
                     QuickFix.Fields.SubscriptionRequestType aSubscriptionRequestType

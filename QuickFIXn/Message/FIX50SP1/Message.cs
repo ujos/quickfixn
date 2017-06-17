@@ -11,6 +11,12 @@ namespace QuickFix
             {
                 this.Header.SetField(new QuickFix.Fields.BeginString(QuickFix.FixValues.BeginString.FIXT11));
             }
+
+            public Message(Message other)
+                : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.BeginString(QuickFix.FixValues.BeginString.FIXT11));
+            }
         }
     }
 }

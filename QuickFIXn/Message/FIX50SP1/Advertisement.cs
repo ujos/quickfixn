@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("7"));
             }
 
+            public Advertisement(Advertisement other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("7"));
+            }
+
+            public new Advertisement Clone()
+            {
+                return (Advertisement)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new Advertisement(this);
+            }
+
             public Advertisement(
                     QuickFix.Fields.AdvId aAdvId,
                     QuickFix.Fields.AdvTransType aAdvTransType,

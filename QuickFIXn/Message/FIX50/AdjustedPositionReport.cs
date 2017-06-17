@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("BL"));
             }
 
+            public AdjustedPositionReport(AdjustedPositionReport other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("BL"));
+            }
+
+            public new AdjustedPositionReport Clone()
+            {
+                return (AdjustedPositionReport)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new AdjustedPositionReport(this);
+            }
+
             public AdjustedPositionReport(
                     QuickFix.Fields.PosMaintRptID aPosMaintRptID,
                     QuickFix.Fields.ClearingBusinessDate aClearingBusinessDate

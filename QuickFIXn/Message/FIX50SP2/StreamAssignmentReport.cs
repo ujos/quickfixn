@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("CD"));
             }
 
+            public StreamAssignmentReport(StreamAssignmentReport other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("CD"));
+            }
+
+            public new StreamAssignmentReport Clone()
+            {
+                return (StreamAssignmentReport)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new StreamAssignmentReport(this);
+            }
+
             public StreamAssignmentReport(
                     QuickFix.Fields.StreamAsgnRptID aStreamAsgnRptID
                 ) : this()

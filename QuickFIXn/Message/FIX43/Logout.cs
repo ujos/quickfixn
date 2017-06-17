@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("5"));
             }
 
+            public Logout(Logout other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("5"));
+            }
+
+            public new Logout Clone()
+            {
+                return (Logout)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new Logout(this);
+            }
+
 
             public QuickFix.Fields.Text Text
             { 

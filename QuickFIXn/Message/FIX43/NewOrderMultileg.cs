@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AB"));
             }
 
+            public NewOrderMultileg(NewOrderMultileg other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AB"));
+            }
+
+            public new NewOrderMultileg Clone()
+            {
+                return (NewOrderMultileg)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new NewOrderMultileg(this);
+            }
+
             public NewOrderMultileg(
                     QuickFix.Fields.ClOrdID aClOrdID,
                     QuickFix.Fields.HandlInst aHandlInst,

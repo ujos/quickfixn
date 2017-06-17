@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("D"));
             }
 
+            public NewOrderSingle(NewOrderSingle other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("D"));
+            }
+
+            public new NewOrderSingle Clone()
+            {
+                return (NewOrderSingle)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new NewOrderSingle(this);
+            }
+
             public NewOrderSingle(
                     QuickFix.Fields.ClOrdID aClOrdID,
                     QuickFix.Fields.HandlInst aHandlInst,

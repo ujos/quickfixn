@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("BQ"));
             }
 
+            public SettlementObligationReport(SettlementObligationReport other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("BQ"));
+            }
+
+            public new SettlementObligationReport Clone()
+            {
+                return (SettlementObligationReport)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new SettlementObligationReport(this);
+            }
+
             public SettlementObligationReport(
                     QuickFix.Fields.SettlObligMsgID aSettlObligMsgID,
                     QuickFix.Fields.SettlObligMode aSettlObligMode

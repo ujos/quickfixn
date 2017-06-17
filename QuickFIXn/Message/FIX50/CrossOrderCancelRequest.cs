@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("u"));
             }
 
+            public CrossOrderCancelRequest(CrossOrderCancelRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("u"));
+            }
+
+            public new CrossOrderCancelRequest Clone()
+            {
+                return (CrossOrderCancelRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new CrossOrderCancelRequest(this);
+            }
+
             public CrossOrderCancelRequest(
                     QuickFix.Fields.CrossID aCrossID,
                     QuickFix.Fields.OrigCrossID aOrigCrossID,

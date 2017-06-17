@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AK"));
             }
 
+            public Confirmation(Confirmation other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AK"));
+            }
+
+            public new Confirmation Clone()
+            {
+                return (Confirmation)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new Confirmation(this);
+            }
+
             public Confirmation(
                     QuickFix.Fields.ConfirmID aConfirmID,
                     QuickFix.Fields.ConfirmTransType aConfirmTransType,

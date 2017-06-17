@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("2"));
             }
 
+            public ResendRequest(ResendRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("2"));
+            }
+
+            public new ResendRequest Clone()
+            {
+                return (ResendRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new ResendRequest(this);
+            }
+
             public ResendRequest(
                     QuickFix.Fields.BeginSeqNo aBeginSeqNo,
                     QuickFix.Fields.EndSeqNo aEndSeqNo

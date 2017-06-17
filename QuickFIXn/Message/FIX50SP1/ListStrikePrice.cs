@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("m"));
             }
 
+            public ListStrikePrice(ListStrikePrice other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("m"));
+            }
+
+            public new ListStrikePrice Clone()
+            {
+                return (ListStrikePrice)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new ListStrikePrice(this);
+            }
+
             public ListStrikePrice(
                     QuickFix.Fields.ListID aListID,
                     QuickFix.Fields.TotNoStrikes aTotNoStrikes

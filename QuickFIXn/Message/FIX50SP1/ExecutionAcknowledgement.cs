@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("BN"));
             }
 
+            public ExecutionAcknowledgement(ExecutionAcknowledgement other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("BN"));
+            }
+
+            public new ExecutionAcknowledgement Clone()
+            {
+                return (ExecutionAcknowledgement)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new ExecutionAcknowledgement(this);
+            }
+
             public ExecutionAcknowledgement(
                     QuickFix.Fields.OrderID aOrderID,
                     QuickFix.Fields.ExecAckStatus aExecAckStatus,

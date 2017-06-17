@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AC"));
             }
 
+            public MultilegOrderCancelReplace(MultilegOrderCancelReplace other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AC"));
+            }
+
+            public new MultilegOrderCancelReplace Clone()
+            {
+                return (MultilegOrderCancelReplace)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new MultilegOrderCancelReplace(this);
+            }
+
             public MultilegOrderCancelReplace(
                     QuickFix.Fields.OrigClOrdID aOrigClOrdID,
                     QuickFix.Fields.ClOrdID aClOrdID,

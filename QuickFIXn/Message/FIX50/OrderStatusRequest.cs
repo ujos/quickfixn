@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("H"));
             }
 
+            public OrderStatusRequest(OrderStatusRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("H"));
+            }
+
+            public new OrderStatusRequest Clone()
+            {
+                return (OrderStatusRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new OrderStatusRequest(this);
+            }
+
             public OrderStatusRequest(
                     QuickFix.Fields.ClOrdID aClOrdID,
                     QuickFix.Fields.Side aSide

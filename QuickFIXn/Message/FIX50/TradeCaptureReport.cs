@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AE"));
             }
 
+            public TradeCaptureReport(TradeCaptureReport other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AE"));
+            }
+
+            public new TradeCaptureReport Clone()
+            {
+                return (TradeCaptureReport)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new TradeCaptureReport(this);
+            }
+
             public TradeCaptureReport(
                     QuickFix.Fields.LastQty aLastQty,
                     QuickFix.Fields.LastPx aLastPx,

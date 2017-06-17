@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("6"));
             }
 
+            public IndicationofInterest(IndicationofInterest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("6"));
+            }
+
+            public new IndicationofInterest Clone()
+            {
+                return (IndicationofInterest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new IndicationofInterest(this);
+            }
+
             public IndicationofInterest(
                     QuickFix.Fields.IOIid aIOIid,
                     QuickFix.Fields.IOITransType aIOITransType,

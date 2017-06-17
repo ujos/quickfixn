@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("E"));
             }
 
+            public NewOrderList(NewOrderList other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("E"));
+            }
+
+            public new NewOrderList Clone()
+            {
+                return (NewOrderList)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new NewOrderList(this);
+            }
+
             public NewOrderList(
                     QuickFix.Fields.ListID aListID,
                     QuickFix.Fields.BidType aBidType,

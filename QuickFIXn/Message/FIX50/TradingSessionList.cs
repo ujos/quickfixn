@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("BJ"));
             }
 
+            public TradingSessionList(TradingSessionList other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("BJ"));
+            }
+
+            public new TradingSessionList Clone()
+            {
+                return (TradingSessionList)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new TradingSessionList(this);
+            }
+
 
             public QuickFix.Fields.TradSesReqID TradSesReqID
             { 

@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AL"));
             }
 
+            public PositionMaintenanceRequest(PositionMaintenanceRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AL"));
+            }
+
+            public new PositionMaintenanceRequest Clone()
+            {
+                return (PositionMaintenanceRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new PositionMaintenanceRequest(this);
+            }
+
             public PositionMaintenanceRequest(
                     QuickFix.Fields.PosTransType aPosTransType,
                     QuickFix.Fields.PosMaintAction aPosMaintAction,

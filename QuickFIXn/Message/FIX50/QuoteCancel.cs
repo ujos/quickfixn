@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("Z"));
             }
 
+            public QuoteCancel(QuoteCancel other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("Z"));
+            }
+
+            public new QuoteCancel Clone()
+            {
+                return (QuoteCancel)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new QuoteCancel(this);
+            }
+
             public QuoteCancel(
                     QuickFix.Fields.QuoteCancelType aQuoteCancelType
                 ) : this()

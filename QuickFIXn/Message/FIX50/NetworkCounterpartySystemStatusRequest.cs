@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("BC"));
             }
 
+            public NetworkCounterpartySystemStatusRequest(NetworkCounterpartySystemStatusRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("BC"));
+            }
+
+            public new NetworkCounterpartySystemStatusRequest Clone()
+            {
+                return (NetworkCounterpartySystemStatusRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new NetworkCounterpartySystemStatusRequest(this);
+            }
+
             public NetworkCounterpartySystemStatusRequest(
                     QuickFix.Fields.NetworkRequestType aNetworkRequestType,
                     QuickFix.Fields.NetworkRequestID aNetworkRequestID

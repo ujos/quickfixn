@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("BA"));
             }
 
+            public CollateralReport(CollateralReport other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("BA"));
+            }
+
+            public new CollateralReport Clone()
+            {
+                return (CollateralReport)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new CollateralReport(this);
+            }
+
             public CollateralReport(
                     QuickFix.Fields.CollRptID aCollRptID,
                     QuickFix.Fields.CollStatus aCollStatus

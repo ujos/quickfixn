@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("BO"));
             }
 
+            public ContraryIntentionReport(ContraryIntentionReport other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("BO"));
+            }
+
+            public new ContraryIntentionReport Clone()
+            {
+                return (ContraryIntentionReport)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new ContraryIntentionReport(this);
+            }
+
             public ContraryIntentionReport(
                     QuickFix.Fields.ContIntRptID aContIntRptID,
                     QuickFix.Fields.ClearingBusinessDate aClearingBusinessDate

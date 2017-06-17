@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AV"));
             }
 
+            public SettlementInstructionRequest(SettlementInstructionRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AV"));
+            }
+
+            public new SettlementInstructionRequest Clone()
+            {
+                return (SettlementInstructionRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new SettlementInstructionRequest(this);
+            }
+
             public SettlementInstructionRequest(
                     QuickFix.Fields.SettlInstReqID aSettlInstReqID,
                     QuickFix.Fields.TransactTime aTransactTime

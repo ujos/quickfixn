@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("R"));
             }
 
+            public QuoteRequest(QuoteRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("R"));
+            }
+
+            public new QuoteRequest Clone()
+            {
+                return (QuoteRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new QuoteRequest(this);
+            }
+
             public QuoteRequest(
                     QuickFix.Fields.QuoteReqID aQuoteReqID
                 ) : this()

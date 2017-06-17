@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("Q"));
             }
 
+            public DontKnowTrade(DontKnowTrade other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("Q"));
+            }
+
+            public new DontKnowTrade Clone()
+            {
+                return (DontKnowTrade)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new DontKnowTrade(this);
+            }
+
             public DontKnowTrade(
                     QuickFix.Fields.OrderID aOrderID,
                     QuickFix.Fields.ExecID aExecID,

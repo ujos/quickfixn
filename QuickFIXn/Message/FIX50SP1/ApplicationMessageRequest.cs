@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("BW"));
             }
 
+            public ApplicationMessageRequest(ApplicationMessageRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("BW"));
+            }
+
+            public new ApplicationMessageRequest Clone()
+            {
+                return (ApplicationMessageRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new ApplicationMessageRequest(this);
+            }
+
             public ApplicationMessageRequest(
                     QuickFix.Fields.ApplReqID aApplReqID,
                     QuickFix.Fields.ApplReqType aApplReqType

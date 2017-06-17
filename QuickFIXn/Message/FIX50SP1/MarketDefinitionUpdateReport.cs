@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("BV"));
             }
 
+            public MarketDefinitionUpdateReport(MarketDefinitionUpdateReport other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("BV"));
+            }
+
+            public new MarketDefinitionUpdateReport Clone()
+            {
+                return (MarketDefinitionUpdateReport)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new MarketDefinitionUpdateReport(this);
+            }
+
             public MarketDefinitionUpdateReport(
                     QuickFix.Fields.MarketReportID aMarketReportID,
                     QuickFix.Fields.MarketID aMarketID

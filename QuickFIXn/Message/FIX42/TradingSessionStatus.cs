@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("h"));
             }
 
+            public TradingSessionStatus(TradingSessionStatus other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("h"));
+            }
+
+            public new TradingSessionStatus Clone()
+            {
+                return (TradingSessionStatus)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new TradingSessionStatus(this);
+            }
+
             public TradingSessionStatus(
                     QuickFix.Fields.TradingSessionID aTradingSessionID,
                     QuickFix.Fields.TradSesStatus aTradSesStatus

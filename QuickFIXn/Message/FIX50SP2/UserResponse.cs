@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("BF"));
             }
 
+            public UserResponse(UserResponse other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("BF"));
+            }
+
+            public new UserResponse Clone()
+            {
+                return (UserResponse)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new UserResponse(this);
+            }
+
             public UserResponse(
                     QuickFix.Fields.UserRequestID aUserRequestID,
                     QuickFix.Fields.Username aUsername

@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("BP"));
             }
 
+            public SecurityDefinitionUpdateReport(SecurityDefinitionUpdateReport other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("BP"));
+            }
+
+            public new SecurityDefinitionUpdateReport Clone()
+            {
+                return (SecurityDefinitionUpdateReport)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new SecurityDefinitionUpdateReport(this);
+            }
+
 
             public QuickFix.Fields.SecurityReportID SecurityReportID
             { 

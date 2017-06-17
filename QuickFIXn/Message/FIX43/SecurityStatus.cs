@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("f"));
             }
 
+            public SecurityStatus(SecurityStatus other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("f"));
+            }
+
+            public new SecurityStatus Clone()
+            {
+                return (SecurityStatus)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new SecurityStatus(this);
+            }
+
             public SecurityStatus(
                     QuickFix.Fields.Symbol aSymbol
                 ) : this()

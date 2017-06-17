@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("p"));
             }
 
+            public RegistrationInstructionsResponse(RegistrationInstructionsResponse other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("p"));
+            }
+
+            public new RegistrationInstructionsResponse Clone()
+            {
+                return (RegistrationInstructionsResponse)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new RegistrationInstructionsResponse(this);
+            }
+
             public RegistrationInstructionsResponse(
                     QuickFix.Fields.RegistID aRegistID,
                     QuickFix.Fields.RegistTransType aRegistTransType,

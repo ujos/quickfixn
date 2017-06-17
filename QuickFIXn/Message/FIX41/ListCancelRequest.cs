@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("K"));
             }
 
+            public ListCancelRequest(ListCancelRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("K"));
+            }
+
+            public new ListCancelRequest Clone()
+            {
+                return (ListCancelRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new ListCancelRequest(this);
+            }
+
             public ListCancelRequest(
                     QuickFix.Fields.ListID aListID
                 ) : this()

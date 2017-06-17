@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("z"));
             }
 
+            public DerivativeSecurityListRequest(DerivativeSecurityListRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("z"));
+            }
+
+            public new DerivativeSecurityListRequest Clone()
+            {
+                return (DerivativeSecurityListRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new DerivativeSecurityListRequest(this);
+            }
+
             public DerivativeSecurityListRequest(
                     QuickFix.Fields.SecurityReqID aSecurityReqID,
                     QuickFix.Fields.SecurityListRequestType aSecurityListRequestType

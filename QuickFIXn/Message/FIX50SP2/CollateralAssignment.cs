@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AY"));
             }
 
+            public CollateralAssignment(CollateralAssignment other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AY"));
+            }
+
+            public new CollateralAssignment Clone()
+            {
+                return (CollateralAssignment)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new CollateralAssignment(this);
+            }
+
             public CollateralAssignment(
                     QuickFix.Fields.CollAsgnID aCollAsgnID,
                     QuickFix.Fields.CollAsgnReason aCollAsgnReason,

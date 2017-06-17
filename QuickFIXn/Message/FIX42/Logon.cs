@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("A"));
             }
 
+            public Logon(Logon other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("A"));
+            }
+
+            public new Logon Clone()
+            {
+                return (Logon)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new Logon(this);
+            }
+
             public Logon(
                     QuickFix.Fields.EncryptMethod aEncryptMethod,
                     QuickFix.Fields.HeartBtInt aHeartBtInt

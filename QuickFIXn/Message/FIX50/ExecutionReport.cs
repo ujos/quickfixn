@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("8"));
             }
 
+            public ExecutionReport(ExecutionReport other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("8"));
+            }
+
+            public new ExecutionReport Clone()
+            {
+                return (ExecutionReport)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new ExecutionReport(this);
+            }
+
             public ExecutionReport(
                     QuickFix.Fields.OrderID aOrderID,
                     QuickFix.Fields.ExecID aExecID,

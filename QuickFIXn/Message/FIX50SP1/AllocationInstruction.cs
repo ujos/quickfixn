@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("J"));
             }
 
+            public AllocationInstruction(AllocationInstruction other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("J"));
+            }
+
+            public new AllocationInstruction Clone()
+            {
+                return (AllocationInstruction)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new AllocationInstruction(this);
+            }
+
             public AllocationInstruction(
                     QuickFix.Fields.AllocID aAllocID,
                     QuickFix.Fields.AllocTransType aAllocTransType,

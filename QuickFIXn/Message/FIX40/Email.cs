@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("C"));
             }
 
+            public Email(Email other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("C"));
+            }
+
+            public new Email Clone()
+            {
+                return (Email)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new Email(this);
+            }
+
             public Email(
                     QuickFix.Fields.EmailType aEmailType
                 ) : this()

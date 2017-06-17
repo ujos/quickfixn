@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AU"));
             }
 
+            public ConfirmationAck(ConfirmationAck other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AU"));
+            }
+
+            public new ConfirmationAck Clone()
+            {
+                return (ConfirmationAck)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new ConfirmationAck(this);
+            }
+
             public ConfirmationAck(
                     QuickFix.Fields.ConfirmID aConfirmID,
                     QuickFix.Fields.TradeDate aTradeDate,

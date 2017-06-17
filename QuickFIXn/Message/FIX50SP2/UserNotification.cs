@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("CB"));
             }
 
+            public UserNotification(UserNotification other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("CB"));
+            }
+
+            public new UserNotification Clone()
+            {
+                return (UserNotification)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new UserNotification(this);
+            }
+
             public UserNotification(
                     QuickFix.Fields.UserStatus aUserStatus
                 ) : this()

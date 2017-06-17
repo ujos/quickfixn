@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("CE"));
             }
 
+            public StreamAssignmentReportACK(StreamAssignmentReportACK other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("CE"));
+            }
+
+            public new StreamAssignmentReportACK Clone()
+            {
+                return (StreamAssignmentReportACK)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new StreamAssignmentReportACK(this);
+            }
+
             public StreamAssignmentReportACK(
                     QuickFix.Fields.StreamAsgnAckType aStreamAsgnAckType,
                     QuickFix.Fields.StreamAsgnRptID aStreamAsgnRptID

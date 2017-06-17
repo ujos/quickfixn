@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("w"));
             }
 
+            public SecurityTypes(SecurityTypes other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("w"));
+            }
+
+            public new SecurityTypes Clone()
+            {
+                return (SecurityTypes)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new SecurityTypes(this);
+            }
+
             public SecurityTypes(
                     QuickFix.Fields.SecurityReqID aSecurityReqID,
                     QuickFix.Fields.SecurityResponseID aSecurityResponseID,

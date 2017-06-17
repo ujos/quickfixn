@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AI"));
             }
 
+            public QuoteStatusReport(QuoteStatusReport other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AI"));
+            }
+
+            public new QuoteStatusReport Clone()
+            {
+                return (QuoteStatusReport)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new QuoteStatusReport(this);
+            }
+
 
             public QuickFix.Fields.QuoteStatusReqID QuoteStatusReqID
             { 

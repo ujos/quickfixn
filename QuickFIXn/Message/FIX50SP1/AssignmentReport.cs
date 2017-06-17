@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AW"));
             }
 
+            public AssignmentReport(AssignmentReport other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AW"));
+            }
+
+            public new AssignmentReport Clone()
+            {
+                return (AssignmentReport)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new AssignmentReport(this);
+            }
+
             public AssignmentReport(
                     QuickFix.Fields.AsgnRptID aAsgnRptID,
                     QuickFix.Fields.ClearingBusinessDate aClearingBusinessDate

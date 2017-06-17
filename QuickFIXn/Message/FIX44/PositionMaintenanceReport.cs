@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AM"));
             }
 
+            public PositionMaintenanceReport(PositionMaintenanceReport other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AM"));
+            }
+
+            public new PositionMaintenanceReport Clone()
+            {
+                return (PositionMaintenanceReport)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new PositionMaintenanceReport(this);
+            }
+
             public PositionMaintenanceReport(
                     QuickFix.Fields.PosMaintRptID aPosMaintRptID,
                     QuickFix.Fields.PosTransType aPosTransType,

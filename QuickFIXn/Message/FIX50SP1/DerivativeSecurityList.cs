@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AA"));
             }
 
+            public DerivativeSecurityList(DerivativeSecurityList other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AA"));
+            }
+
+            public new DerivativeSecurityList Clone()
+            {
+                return (DerivativeSecurityList)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new DerivativeSecurityList(this);
+            }
+
             public DerivativeSecurityList(
                     QuickFix.Fields.SecurityResponseID aSecurityResponseID
                 ) : this()

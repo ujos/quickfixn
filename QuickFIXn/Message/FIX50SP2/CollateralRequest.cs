@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AX"));
             }
 
+            public CollateralRequest(CollateralRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AX"));
+            }
+
+            public new CollateralRequest Clone()
+            {
+                return (CollateralRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new CollateralRequest(this);
+            }
+
             public CollateralRequest(
                     QuickFix.Fields.CollReqID aCollReqID,
                     QuickFix.Fields.CollAsgnReason aCollAsgnReason,

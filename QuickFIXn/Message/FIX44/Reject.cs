@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("3"));
             }
 
+            public Reject(Reject other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("3"));
+            }
+
+            public new Reject Clone()
+            {
+                return (Reject)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new Reject(this);
+            }
+
             public Reject(
                     QuickFix.Fields.RefSeqNum aRefSeqNum
                 ) : this()

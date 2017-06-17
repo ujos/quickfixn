@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AO"));
             }
 
+            public RequestForPositionsAck(RequestForPositionsAck other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AO"));
+            }
+
+            public new RequestForPositionsAck Clone()
+            {
+                return (RequestForPositionsAck)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new RequestForPositionsAck(this);
+            }
+
             public RequestForPositionsAck(
                     QuickFix.Fields.PosMaintRptID aPosMaintRptID,
                     QuickFix.Fields.PosReqResult aPosReqResult,

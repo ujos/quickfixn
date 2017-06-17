@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("6"));
             }
 
+            public IOI(IOI other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("6"));
+            }
+
+            public new IOI Clone()
+            {
+                return (IOI)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new IOI(this);
+            }
+
             public IOI(
                     QuickFix.Fields.IOIID aIOIID,
                     QuickFix.Fields.IOITransType aIOITransType,

@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("4"));
             }
 
+            public SequenceReset(SequenceReset other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("4"));
+            }
+
+            public new SequenceReset Clone()
+            {
+                return (SequenceReset)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new SequenceReset(this);
+            }
+
             public SequenceReset(
                     QuickFix.Fields.NewSeqNo aNewSeqNo
                 ) : this()

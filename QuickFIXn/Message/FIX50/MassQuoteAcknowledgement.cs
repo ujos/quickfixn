@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("b"));
             }
 
+            public MassQuoteAcknowledgement(MassQuoteAcknowledgement other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("b"));
+            }
+
+            public new MassQuoteAcknowledgement Clone()
+            {
+                return (MassQuoteAcknowledgement)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new MassQuoteAcknowledgement(this);
+            }
+
             public MassQuoteAcknowledgement(
                     QuickFix.Fields.QuoteStatus aQuoteStatus
                 ) : this()

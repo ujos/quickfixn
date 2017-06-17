@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AJ"));
             }
 
+            public QuoteResponse(QuoteResponse other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AJ"));
+            }
+
+            public new QuoteResponse Clone()
+            {
+                return (QuoteResponse)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new QuoteResponse(this);
+            }
+
             public QuoteResponse(
                     QuickFix.Fields.QuoteRespID aQuoteRespID,
                     QuickFix.Fields.QuoteRespType aQuoteRespType

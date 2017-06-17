@@ -44,7 +44,7 @@ namespace QuickFix
     /// <summary>
     /// Represents a FIX message
     /// </summary>
-    public class Message : FieldMap
+    public class Message : FieldMap, ICloneable
     {
         public const string SOH = "\u0001";
         private int field_ = 0;
@@ -783,6 +783,18 @@ namespace QuickFix
         protected int BodyLength()
         {
             return this.Header.CalculateLength() + CalculateLength() + this.Trailer.CalculateLength();
+        }
+
+        public Message Clone() {
+            return DoClone();
+        }
+        protected virtual Message DoClone()
+        {
+            return new Message(this);
+        }
+        object ICloneable.Clone()
+        {
+            return DoClone();
         }
     }
 }

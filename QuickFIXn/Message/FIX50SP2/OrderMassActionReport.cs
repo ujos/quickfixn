@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("BZ"));
             }
 
+            public OrderMassActionReport(OrderMassActionReport other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("BZ"));
+            }
+
+            public new OrderMassActionReport Clone()
+            {
+                return (OrderMassActionReport)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new OrderMassActionReport(this);
+            }
+
             public OrderMassActionReport(
                     QuickFix.Fields.MassActionReportID aMassActionReportID,
                     QuickFix.Fields.MassActionType aMassActionType,

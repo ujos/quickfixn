@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("0"));
             }
 
+            public Heartbeat(Heartbeat other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("0"));
+            }
+
+            public new Heartbeat Clone()
+            {
+                return (Heartbeat)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new Heartbeat(this);
+            }
+
 
             public QuickFix.Fields.TestReqID TestReqID
             { 

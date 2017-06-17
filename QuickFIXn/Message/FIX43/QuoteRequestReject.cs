@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AG"));
             }
 
+            public QuoteRequestReject(QuoteRequestReject other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AG"));
+            }
+
+            public new QuoteRequestReject Clone()
+            {
+                return (QuoteRequestReject)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new QuoteRequestReject(this);
+            }
+
             public QuoteRequestReject(
                     QuickFix.Fields.QuoteReqID aQuoteReqID,
                     QuickFix.Fields.QuoteRequestRejectReason aQuoteRequestRejectReason

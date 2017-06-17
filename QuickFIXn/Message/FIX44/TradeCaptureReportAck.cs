@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AR"));
             }
 
+            public TradeCaptureReportAck(TradeCaptureReportAck other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AR"));
+            }
+
+            public new TradeCaptureReportAck Clone()
+            {
+                return (TradeCaptureReportAck)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new TradeCaptureReportAck(this);
+            }
+
             public TradeCaptureReportAck(
                     QuickFix.Fields.TradeReportID aTradeReportID,
                     QuickFix.Fields.ExecType aExecType,

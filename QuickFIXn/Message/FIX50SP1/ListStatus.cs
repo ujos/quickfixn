@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("N"));
             }
 
+            public ListStatus(ListStatus other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("N"));
+            }
+
+            public new ListStatus Clone()
+            {
+                return (ListStatus)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new ListStatus(this);
+            }
+
             public ListStatus(
                     QuickFix.Fields.ListID aListID,
                     QuickFix.Fields.ListStatusType aListStatusType,

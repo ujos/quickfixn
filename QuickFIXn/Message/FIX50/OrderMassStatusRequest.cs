@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AF"));
             }
 
+            public OrderMassStatusRequest(OrderMassStatusRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AF"));
+            }
+
+            public new OrderMassStatusRequest Clone()
+            {
+                return (OrderMassStatusRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new OrderMassStatusRequest(this);
+            }
+
             public OrderMassStatusRequest(
                     QuickFix.Fields.MassStatusReqID aMassStatusReqID,
                     QuickFix.Fields.MassStatusReqType aMassStatusReqType

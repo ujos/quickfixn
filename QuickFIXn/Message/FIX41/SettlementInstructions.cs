@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("T"));
             }
 
+            public SettlementInstructions(SettlementInstructions other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("T"));
+            }
+
+            public new SettlementInstructions Clone()
+            {
+                return (SettlementInstructions)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new SettlementInstructions(this);
+            }
+
             public SettlementInstructions(
                     QuickFix.Fields.SettlInstID aSettlInstID,
                     QuickFix.Fields.SettlInstTransType aSettlInstTransType,

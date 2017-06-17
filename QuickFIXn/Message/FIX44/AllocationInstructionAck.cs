@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("P"));
             }
 
+            public AllocationInstructionAck(AllocationInstructionAck other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("P"));
+            }
+
+            public new AllocationInstructionAck Clone()
+            {
+                return (AllocationInstructionAck)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new AllocationInstructionAck(this);
+            }
+
             public AllocationInstructionAck(
                     QuickFix.Fields.AllocID aAllocID,
                     QuickFix.Fields.TransactTime aTransactTime,

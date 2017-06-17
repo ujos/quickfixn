@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("BG"));
             }
 
+            public CollateralInquiryAck(CollateralInquiryAck other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("BG"));
+            }
+
+            public new CollateralInquiryAck Clone()
+            {
+                return (CollateralInquiryAck)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new CollateralInquiryAck(this);
+            }
+
             public CollateralInquiryAck(
                     QuickFix.Fields.CollInquiryID aCollInquiryID,
                     QuickFix.Fields.CollInquiryStatus aCollInquiryStatus

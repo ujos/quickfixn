@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("BT"));
             }
 
+            public MarketDefinitionRequest(MarketDefinitionRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("BT"));
+            }
+
+            public new MarketDefinitionRequest Clone()
+            {
+                return (MarketDefinitionRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new MarketDefinitionRequest(this);
+            }
+
             public MarketDefinitionRequest(
                     QuickFix.Fields.MarketReqID aMarketReqID,
                     QuickFix.Fields.SubscriptionRequestType aSubscriptionRequestType

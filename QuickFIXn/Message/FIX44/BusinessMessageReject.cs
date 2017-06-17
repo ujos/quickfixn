@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("j"));
             }
 
+            public BusinessMessageReject(BusinessMessageReject other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("j"));
+            }
+
+            public new BusinessMessageReject Clone()
+            {
+                return (BusinessMessageReject)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new BusinessMessageReject(this);
+            }
+
             public BusinessMessageReject(
                     QuickFix.Fields.RefMsgType aRefMsgType,
                     QuickFix.Fields.BusinessRejectReason aBusinessRejectReason

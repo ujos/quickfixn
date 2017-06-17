@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("B"));
             }
 
+            public News(News other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("B"));
+            }
+
+            public new News Clone()
+            {
+                return (News)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new News(this);
+            }
+
 
             public QuickFix.Fields.OrigTime OrigTime
             { 

@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("G"));
             }
 
+            public OrderCancelReplaceRequest(OrderCancelReplaceRequest other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("G"));
+            }
+
+            public new OrderCancelReplaceRequest Clone()
+            {
+                return (OrderCancelReplaceRequest)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new OrderCancelReplaceRequest(this);
+            }
+
             public OrderCancelReplaceRequest(
                     QuickFix.Fields.OrigClOrdID aOrigClOrdID,
                     QuickFix.Fields.ClOrdID aClOrdID,

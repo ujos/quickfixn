@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("W"));
             }
 
+            public MarketDataSnapshotFullRefresh(MarketDataSnapshotFullRefresh other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("W"));
+            }
+
+            public new MarketDataSnapshotFullRefresh Clone()
+            {
+                return (MarketDataSnapshotFullRefresh)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new MarketDataSnapshotFullRefresh(this);
+            }
+
 
             public QuickFix.Fields.MDReqID MDReqID
             { 

@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("CG"));
             }
 
+            public PartyDetailsListReport(PartyDetailsListReport other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("CG"));
+            }
+
+            public new PartyDetailsListReport Clone()
+            {
+                return (PartyDetailsListReport)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new PartyDetailsListReport(this);
+            }
+
             public PartyDetailsListReport(
                     QuickFix.Fields.PartyDetailsListReportID aPartyDetailsListReportID
                 ) : this()

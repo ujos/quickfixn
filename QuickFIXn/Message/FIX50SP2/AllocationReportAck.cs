@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("AT"));
             }
 
+            public AllocationReportAck(AllocationReportAck other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("AT"));
+            }
+
+            public new AllocationReportAck Clone()
+            {
+                return (AllocationReportAck)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new AllocationReportAck(this);
+            }
+
             public AllocationReportAck(
                     QuickFix.Fields.AllocReportID aAllocReportID
                 ) : this()

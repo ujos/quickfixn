@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("i"));
             }
 
+            public MassQuote(MassQuote other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("i"));
+            }
+
+            public new MassQuote Clone()
+            {
+                return (MassQuote)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new MassQuote(this);
+            }
+
             public MassQuote(
                     QuickFix.Fields.QuoteID aQuoteID
                 ) : this()

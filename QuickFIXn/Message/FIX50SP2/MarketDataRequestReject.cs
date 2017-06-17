@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("Y"));
             }
 
+            public MarketDataRequestReject(MarketDataRequestReject other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("Y"));
+            }
+
+            public new MarketDataRequestReject Clone()
+            {
+                return (MarketDataRequestReject)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new MarketDataRequestReject(this);
+            }
+
             public MarketDataRequestReject(
                     QuickFix.Fields.MDReqID aMDReqID
                 ) : this()

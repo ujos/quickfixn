@@ -39,6 +39,12 @@ namespace QuickFix
             {
                 this.Header.SetField(new QuickFix.Fields.BeginString(QuickFix.FixValues.BeginString.#{beginstring}));
             }
+
+            public Message(Message other)
+                : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.BeginString(QuickFix.FixValues.BeginString.#{beginstring}));
+            }
         }
     }
 }
@@ -78,6 +84,21 @@ HERE
             public #{msg[:name]}() : base()
             {
                 this.Header.SetField(new QuickFix.Fields.MsgType("#{msg[:msgtype]}"));
+            }
+
+            public #{msg[:name]}(#{msg[:name]} other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("#{msg[:msgtype]}"));
+            }
+
+            public new #{msg[:name]} Clone()
+            {
+                return (#{msg[:name]})DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new #{msg[:name]}(this);
             }
 HERE
   end

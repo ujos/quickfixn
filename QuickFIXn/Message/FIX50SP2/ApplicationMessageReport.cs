@@ -14,6 +14,21 @@ namespace QuickFix
                 this.Header.SetField(new QuickFix.Fields.MsgType("BY"));
             }
 
+            public ApplicationMessageReport(ApplicationMessageReport other) : base(other)
+            {
+                this.Header.SetField(new QuickFix.Fields.MsgType("BY"));
+            }
+
+            public new ApplicationMessageReport Clone()
+            {
+                return (ApplicationMessageReport)DoClone();
+            }
+
+            protected override QuickFix.Message DoClone()
+            {
+                return new ApplicationMessageReport(this);
+            }
+
             public ApplicationMessageReport(
                     QuickFix.Fields.ApplReportID aApplReportID,
                     QuickFix.Fields.ApplReportType aApplReportType
