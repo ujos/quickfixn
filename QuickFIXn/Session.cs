@@ -986,6 +986,8 @@ namespace QuickFix
             return true;
         }
 
+        public bool IsReceivingMissedMessages { get{ return state_.ResendRequested(); }}
+
         public void SetResponder(IResponder responder)
         {
             if (!IsSessionTime)
